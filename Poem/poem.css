@@ -1,0 +1,260 @@
+/* Fixed Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Josefin+Sans:wght@600&family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root {
+    --main-color: #643A7A;
+    --secondary-color: #741CAF;
+    --sans: "Josefin Sans", sans-serif;
+    --script: "Dancing Script", cursive;
+    --poppins: "Poppins", sans-serif;
+    --base-font-size: 85.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+html {
+    font-size: var(--base-font-size);
+}
+
+body {
+    margin: 0;
+    font-family: var(--poppins);
+    background: #121212;
+    color: white;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+header {
+    background: #1e1e1e;
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: clamp(2.5rem, 5vw, 3rem);
+    color: #b74b4b;
+    font-weight: 800;
+    font-family: var(--sans);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    font-size: clamp(1.6rem, 2vw, 1.8rem);
+    color: white;
+    font-weight: 500;
+    font-family: var(--sans);
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    padding: 0.5rem 0;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #b74b4b;
+    border-bottom: 3px solid #b74b4b;
+}
+
+.hamburger {
+    display: none;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Poem Container - Responsive Sizing */
+.container {
+    width: min(90%, 500px);
+    min-height: min(80vh, 500px);
+    background: var(--main-color);
+    border-radius: 8px;
+    font-family: var(--script);
+    color: rgb(121, 125, 127);
+    letter-spacing: 0.5px;
+    position: relative;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.box {
+    width: 100%;
+    min-height: min(60vh, 400px);
+    background: #fff;
+    border-radius: 8px;
+    overflow: auto;
+    box-shadow: 0 0 2rem rgba(145, 77, 77, 0.5);
+    font-size: clamp(1.6rem, 3vw, 1.8rem);
+    padding: 2.5rem;
+    margin: 0 auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.number {
+    font-family: var(--sans);
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+}
+
+.quote {
+    width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.8;
+    overflow-wrap: break-word;
+    padding: 1.5rem;
+    font-size: clamp(1.8rem, 4vw, 2rem);
+    flex-grow: 1;
+}
+
+.credit {
+    position: absolute;
+    bottom: 6%;
+    right: 6%;
+    font-family: var(--sans);
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    font-weight: 500;
+}
+
+.credit::before {
+    content: "⸛ ";
+    vertical-align: middle;
+    font-size: 1.4rem;
+}
+
+.fas {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    position: absolute;
+    top: 10%;
+    left: 6%;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.button p {
+    background: #802BBC;
+    text-align: center;
+    color: #fff;
+    padding: 1.2rem 0;
+    width: 100%;
+    font-family: var(--sans);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    transition: background 0.2s ease-out;
+    font-size: clamp(1.6rem, 3vw, 1.8rem);
+}
+
+.button p:hover {
+    background: var(--secondary-color);
+    cursor: pointer;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 995px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: 8rem;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        background: #161616;
+        border-top: 3px solid #b74b4b;
+        border-bottom: 3px solid #b74b4b;
+        padding: 2rem;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    #menu-toggle:checked ~ .nav-menu {
+        display: flex;
+    }
+
+    .nav-menu a {
+        font-size: 2rem;
+        padding: 1rem;
+        text-align: center;
+        border-bottom: none;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        background: rgba(183, 75, 75, 0.1);
+        border-radius: 0.5rem;
+    }
+}
+
+/* Small Mobile Adjustments */
+@media (max-width: 480px) {
+    html {
+        font-size: 80%;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
+
+    .box {
+        padding: 1.5rem;
+    }
+
+    .quote {
+        padding: 1rem;
+        line-height: 1.7;
+    }
+
+    .button p {
+        padding: 1rem 0;
+    }
+}
+
+/* Landscape Orientation Support */
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        min-height: 90vh;
+        width: 90%;
+    }
+
+    .box {
+        min-height: 70vh;
+    }
+
+    .quote {
+        font-size: 1.6rem;
+    }
+}
+
+#menu-toggle {
+    display: none;
+}

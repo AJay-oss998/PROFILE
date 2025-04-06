@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="poem.css">
+    <title>Poems</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"></a>
+        <input type="checkbox" id="menu-toggle" class="hidden">
+        <label for="menu-toggle" class="hamburger">
+            <i class="fas fa-bars"></i>
+        </label>
+        <nav class="nav-menu">
+            <a href="/Poem/Poem.html" class="active">Poem</a>
+            <a href="/Quotes/index.html">Quotes</a>
+            <a href="/index.html">Home</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="box">
+            <div class="triangle"></div>
+            <p class="number">Poem</p>
+            <i class="start-quote fas fa-quote-left"></i>
+            <p id="poem" class="quote">Click below to read a poem...</p>
+            <p class="credit">Ajay</p>
+            <div class="button" onclick="generatePoem()"><p>Next Poem</p></div>
+        </div>
+    </div>
+
+    <script>
+        const poems = [
+            "When love falls apart, silence takes its place, And all that remains is an empty space. We tried our best, but we couldn't see, That we were falling apart, you and me.",
+            "I once thought love would never fade, But time has shown that even it can be betrayed. Our hearts once intertwined with grace, Now drift apart in an endless race.",
+            "The words we spoke, the promises we made, Now fade away, like memories that fade. The love we had, now feels so small, A once towering flame, now a dimmed call.",
+            "I gave you my heart, and you took it in stride, But now it seems, you're no longer by my side. I loved you deeply, more than you'll ever know, But sometimes love is not enough to make it grow.",
+            "The love we shared is now a shadow in the past, And I wonder if it was ever meant to last. The echoes of laughter, the warmth of your touch, Have all faded away, leaving me with too much.",
+            "I thought we’d be together, forever and more, But love’s door closed, and we’re left on the floor. Our hearts once beat as one, so strong, Now each of us wanders, trying to belong.",
+            "The memories linger like a haunting tune, We once were stars, but now we’re just the moon. Our love was beautiful, but now it’s gone, Leaving me lost, trying to move on.",
+            "I watched you go, and I couldn't say a word, For the pain I felt was something I never had heard. You left without a trace, without a goodbye, Leaving me alone to wonder why.",
+            "Our dreams were built on fragile ground, And when they fell, no strength was found. I held you close, but you slipped away, Now I’m left with the night where once was day.",
+            "The tears I shed are silent now, For love has left, I don’t know how. We danced in light, so pure, so true, But now the dance is over, and so are you.",
+            "I painted our future with colors so bright, But you turned away, and stole the light. My heart still calls, though you don’t hear, A love once loud, now drowned in fear.",
+            "We wrote a story, page by page, But love’s ink ran dry, trapped in a cage. The chapters end with a bitter sigh, A tale of us that had to die.",
+            "Your voice once warmed my coldest nights, Now it’s gone, along with the fights. I search for peace in this empty shell, Where once was love, now just farewell.",
+            "The bridge we crossed has burned to ash, Our love reduced to a fleeting flash. I stand alone on the other side, With memories of you I can’t hide.",
+            "I gave you all, my soul, my trust, But it crumbled down to fragile dust. We were a song, now out of tune, A broken chord beneath the moon.",
+            "The stars we wished on lost their glow, Our love slipped through, so fast, so slow. I’m left to wander this endless maze, Haunted by our better days.",
+            "You were my dawn, my morning light, But now I’m trapped in endless night. The love we had, so fierce, so bold, Now lies in ruins, silent, cold.",
+            "I built a home within your heart, But you tore it down, piece by part. The walls we raised now stand alone, A love once warm, now turned to stone.",
+            "Our laughter echoed through the years, Now it’s drowned in unshed tears. I reach for you, but you’re not there, Just empty space and cold despair.",
+            "The promises we carved in sand, Washed away by time’s cruel hand. I loved you more than words can say, But you chose to walk away.",
+            "We were a flame that burned too fast, A fleeting spark not meant to last. The embers fade, the fire’s gone, And I’m left here to carry on.",
+            "Your eyes once held my every dream, Now they’re lost in a distant stream. I call your name, but no reply, Just echoes of a love gone by.",
+            "The love we grew was like a rose, Beautiful, yet it met its close. Thorns remain where petals fell, A tale of heartbreak I can’t retell.",
+            "I held your hand through storm and rain, But you let go, and I felt the pain. Our path diverged, no turning back, A love once whole, now dressed in black.",
+            "We sailed a sea of hopes so high, But waves crashed down, and we said goodbye. The ship has sunk, the waters still, My heart adrift against my will.",
+            "The nights we shared beneath the sky, Now feel like dreams that passed me by. You were my world, my everything, Now just a ghost, a broken string.",
+            "I wrote your name across my soul, But you erased it, left a hole. The love we had, so deep, so true, Now fades away, like morning dew.",
+            "We danced through life, a perfect pair, But now I dance with empty air. The music stopped, the lights went dim, A love story lost to a bitter hymn.",
+            "Your touch once set my heart ablaze, Now it’s lost in a foggy haze. I search for warmth, but find none there, Just echoes of a love unfair.",
+            "The plans we made, the life we dreamed, Dissolved like mist, or so it seemed. I’m left with shards of what could be, A broken heart, a shattered me.",
+            "I loved you with a boundless grace, But you turned from my embrace. The silence grows, the distance wide, A love that lived, then softly died.",
+            "We were a poem, sweet and long, But now the rhyme feels all wrong. The verses fade, the pages tear, A love once here, now nowhere.",
+            "The dawn we watched has turned to dusk, Our love now buried in the husk. I linger here, where we once stood, Mourning a bond misunderstood.",
+            "You were my anchor, firm and sure, But now I drift, lost and unsure. The tides have turned, the winds have blown, A love once mine, now overthrown.",
+            "Our hearts once sang a tender song, But now the notes feel harsh and strong. The melody broke, the chorus ceased, A love once thriving, now deceased.",
+            "I saw forever in your eyes, But forever turned to swift goodbyes. The love we built, so grand, so tall, Came crashing down in a sudden fall.",
+            "The warmth of you was all I knew, But now the cold comes creeping through. I’m lost without your gentle care, A love so rare, now stripped bare.",
+            "We wove a tapestry of dreams, But it unraveled at the seams. The threads we spun, so bright, so fine, Now lie in knots, no longer mine.",
+            "Your smile once lit my darkest days, Now it’s gone in a thousand ways. I chase the light, but shadows fall, A love once whole, now nothing at all.",
+            "The love we shared was like the sea, Vast and wild, yet it set me free. But freedom came with such a cost, A heart once found, now deeply lost.",
+            "I held you close, my guiding star, But now you’re distant, oh so far. The sky is dark, the night so long, A love once right, now feels so wrong.",
+            "We built a world, just you and I, But it crumbled with a single sigh. The ruins stand where love once grew, A broken me, a missing you.",
+            "The whispers of our past remain, A quiet ache, a dull refrain. I loved you more than words can frame, But now it’s just a fading name.",
+            "You were my shelter from the storm, A place so safe, so soft, so warm. But now the rain falls hard and free, A love washed out, no longer we.",
+            "Our love was like a summer breeze, Gentle, sweet, it brought me ease. But autumn came, the winds turned cold, A tale of love forever told.",
+            "I gave my all, my every breath, But you chose life beyond our death. The heart I gave now beats alone, A love once shared, now overthrown.",
+            "We walked a path of golden hue, But shadows fell, and we withdrew. The road ahead is mine to take, A love now lost, for my own sake.",
+            "Your laughter was my sweetest sound, But now it’s silence all around. I search for joy, but find despair, A love once vibrant, now thin air.",
+            "The love we had was like a flame, Wild and bright, it bore your name. But flames die out, as ours did too, Leaving ashes where I once knew you.",
+            "I dreamed of us in endless time, A love so pure, a perfect rhyme. But dreams awake to bitter truth, A broken bond from our lost youth.",
+            "You held my heart within your hands, But let it fall like shifting sands. I’m left to gather what remains, A love now lost to endless pains.",
+            "We were a symphony, loud and grand, But silence fell from your command. The music stopped, the stage is bare, A love once sung, no longer there.",
+            "The nights we spent beneath the stars, Now feel like wounds, like battle scars. I loved you more than skies above, But lost you to a fleeting love.",
+            "I carved our names upon a tree, A sign of what we’d always be. But time has worn the bark away, A love now gone, no words to say.",
+            "You were my compass, true and right, But now I’m lost in endless night. The way is dark, the path unclear, A love once close, no longer here.",
+            "Our love was like a fragile glass, Beautiful, yet it couldn’t last. It shattered with a single blow, A heart in pieces, moving slow.",
+            "I gave you words, my deepest plea, But you turned deaf, and left me be. The silence stings, the quiet burns, A love once mine, now lost in turns.",
+            "We danced in rain, we laughed in sun, But now that dance is all undone. The rhythm’s gone, the joy has fled, A love once alive, now cold and dead.",
+            "Your presence was my sweetest peace, But now that peace has found release. I’m left to fight this war alone, A love once warm, now turned to stone.",
+            "I saw my future in your gaze, A life of love through endless days. But you looked away, the vision broke, A heart once whole, now up in smoke.",
+            "We built a castle in the sky, But clouds rolled in, and we said goodbye. The towers fell, the walls gave way, A love now lost to yesterday.",
+            "The love we shared was like a tide, It rose so high, then chose to hide. I’m stranded now on empty shore, A heart that loves you nevermore.",
+            "I held your dreams as if my own, But you left me here, all alone. The hopes we had now fade to gray, A love once bright, now slipped away.",
+            "You were my muse, my every line, But now the page is blank by design. The words we wrote have lost their spark, A love once lit, now left in dark.",
+            "Our hearts were tied with tender care, But you cut the knot, left it bare. I’m tangled still in what we were, A love now gone, a painful blur.",
+            "The sun once rose with your sweet face, But now it sets in empty space. I chase the dawn, but night prevails, A heart once whole, now frail and pale.",
+            "We flew so high, like birds in flight, But you let go, and stole the light. I’m falling now, no wings to soar, A love once free, now nevermore.",
+            "I gave you trust, my fragile soul, But you broke it down, left a hole. The pieces lie where love once stood, A bond misjudged, misunderstood.",
+            "Our love was like a river’s flow, Steady once, now ceased to grow. The waters stilled, the current died, A heart left dry, where tears reside.",
+            "You were my echo, soft and near, But now there’s silence, loud and clear. I call your name, but hear no sound, A love once found, no longer around.",
+            "We painted life with vibrant hues, But you walked off, left me to choose. The canvas fades, the colors run, A love once bright, now undone.",
+            "I held your heart, you held mine too, But yours grew cold, and mine broke through. The shards remain, sharp and deep, A love now lost to endless sleep.",
+            "The dreams we shared beneath the moon, Dissolved too fast, too harsh, too soon. I’m left with night, no stars to guide, A love once vast, now cast aside.",
+            "You were my shelter, safe and strong, But now I’m weak, the nights so long. The roof caved in, the walls came down, A love once sure, now lost to drown.",
+            "Our love was like a fleeting breeze, It danced with grace, then ceased to please. The air is still, the wind has gone, A heart moves on, though torn and wan.",
+            "I gave you years, my every day, But you turned your back, walked away. The time we spent now feels so vain, A love once sweet, now bitter pain.",
+            "We built a fire to warm our souls, But it burned out, left empty coals. The heat is gone, the chill sets in, A love once fierce, now worn so thin.",
+            "Your voice was home, your touch was peace, But now both fade, their echoes cease. I’m lost without the life we knew, A love once deep, now split in two.",
+            "I saw eternity in your smile, But it vanished quick, in just a while. The joy we had now turns to dust, A love once pure, now turned to rust.",
+            "We were a story, bold and grand, But you dropped the pen from your hand. The tale unfinished, words unsaid, A love once alive, now cold and dead.",
+            "The love we had was like a vine, It grew so fast, then ceased to climb. The roots pulled free, the leaves fell low, A heart once green, now forced to grow.",
+            "I held you close through every storm, But you slipped away, left me worn. The rain still falls, the thunder roars, A love once mine, now lost to shores.",
+            "You were my light, my guiding flame, But now I wander, lost in shame. The dark creeps in, the glow is gone, A love once bright, now overdrawn.",
+            "Our hearts once beat in perfect time, A rhythm sweet, a sacred chime. But you fell off, the beat now strays, A love once synced, now lost in days.",
+            "I gave you love, my endless sea, But you sailed off, away from me. The waves still crash, the tide still turns, A heart once full, now deeply burns.",
+            "We wove our lives with threads of gold, But they unraveled, left me cold. The fabric frays, the pattern fades, A love once rich, now lost to shades.",
+            "Your eyes were stars, your voice a song, But now they’re mute, the night too long. I search the sky, but find no spark, A love once warm, now cold and dark.",
+            "The love we shared was like a dawn, So full of hope, then quickly gone. The day has set, the light retreats, A heart once whole, now skips its beats.",
+            "I built my world around your name, But you tore it down, left me the blame. The ruins stand, the dust still flies, A love once true, now drowned in lies.",
+            "We danced a waltz, so pure, so free, But you stepped back, abandoned me. The floor is bare, the music still, A love once grand, now lost to will.",
+            "You were my sky, my endless blue, But clouds rolled in, and hid the view. The rain now falls, the heavens weep, A love once high, now buried deep.",
+            "Our love was like a fragile bloom, It thrived in light, then met its doom. The petals fall, the stem decays, A heart once soft, now hard always.",
+            "I gave you all, my every star, But you left me here, so near, so far. The night is vast, the sky so wide, A love once ours, now cast aside.",
+            "We were a flame that lit the dark, A burning love, a vital spark. But you blew out the candle’s glow, A heart once warm, now forced to know.",
+            "The love we had was like a play, With acts of joy, then disarray. The curtain fell, the stage went black, A story ended, no turning back.",
+            "I held your dreams, you held my fears, But now we’re split by silent tears. The bond we forged has slipped away, A love once strong, now lost today."
+        ];
+
+        function generatePoem() {
+            const randomIndex = Math.floor(Math.random() * poems.length);
+            const poemText = poems[randomIndex];
+            document.getElementById("poem").innerText = poemText;
+        }
+    </script>
+
+<audio controls autoplay style="display:none;">
+    <source src="/Poem/Peace.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+</body>
+</html>

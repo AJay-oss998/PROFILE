@@ -1,0 +1,837 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: black;
+    color: white;
+}
+
+header{
+    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    background-color: transparent;
+    filter: drop-shadow(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo{
+    font-size: 3rem;
+    color: #b74b4b;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+nav a{
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a.active{
+    color: #b74b4b;
+    border-bottom: 3px solid #b74b4b;
+}
+
+@media(max-width:995px){
+    nav{
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid #b74b4b;
+        border-bottom: 3px solid #b74b4b;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem solid;
+        background-color: #161616;
+        border-top: 0.1rem solid rgba(0,0,0,0.1);
+    }
+
+    nav.active{
+        display: block;
+    }
+
+    nav a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    nav a:hover,
+    nav a.active{
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #b74b4b;
+    }
+}
+
+section{
+    min-height: 100vh;
+    padding: 5rem 9% 5rem;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    background-color: black;
+}
+
+.home .home-content h1{
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+span{
+    color: #b74b4b;
+}
+
+.home-content h3{
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.home-content p{
+    font-size: 1.6rem;
+}
+
+.home-img{
+    border-radius: 50%;
+}
+
+.home-img img{
+    position: relative;
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px solid #b74b4b;
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.home-img img:hover{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.social-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid #b74b4b;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+    color: #b74b4b;
+}
+
+.social-icons a:hover{
+    color: black;
+    transform: scale(1.3) translateY(-5px);
+    background-color: #b74b4b;
+    box-shadow: 0  0 25px #b74b4b;
+}
+
+.btn{
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background-color: black;
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: #b74b4b;
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+    border: 2px solid #b74b4b;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover{
+    transform: scale3d(1.03);
+    background-color: #b74b4b;
+    color: black;
+    box-shadow: 0 0 25px #b74b4b;
+}
+
+.typing-text{
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.typing-text span{
+    position: relative;
+}
+
+.typing-text span::before{
+    content: "software Developer";
+    color: #b74b4b;
+    animation: words 20s infinite;
+}
+
+.typing-text span::after{
+    content: "";
+    background-color: black;
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid black;
+    right: -8;
+    animation: cursor 0.6s infinite;
+}
+
+@keyframes cursor{
+    to{
+        border-left: 3px solid #b74b4b;
+    }
+}
+
+@keyframes words{
+    0%, 20%{
+        content: "Web Developer";
+    }
+    21%, 40%{
+        content: "Developer";
+    }
+    41%, 60%{
+        content: "Web Designer";
+    }
+    61%, 80%{
+        content: "Youtuber";
+    }
+    81%, 100%{
+        content: "Script Writer";
+    }
+}
+
+@media (max-width: 1000px){
+    .home{
+        gap: 4rem;
+    }
+}
+
+@media(max-width:995px){
+    .home{
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+
+    .home .home-content h3{
+        font-size: 2.5rem;
+    }
+
+    .home-content h1{
+        font-size: 5rem;
+    }
+
+    .home-img img{
+        width: 70vw;
+        margin-top: 4rem;
+    }
+}
+
+.logo-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    background: #111;
+    justify-content: center;
+}
+
+/* Facebook Logo */
+.facebook-logo {
+    width: 60px;
+    height: 60px;
+    background: #1877f2;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.facebook-logo::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 32px;
+    background: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2px 8px 2px 2px;
+}
+
+.facebook-logo::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 4px solid white;
+    border-radius: 50%;
+    left: 64%;
+    top: 16%;
+}
+
+/* Discord Logo */
+.discord-logo {
+    width: 60px;
+    height: 60px;
+    background: #5865f2;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+
+.discord-logo::before,
+.discord-logo::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 4px;
+}
+
+.discord-logo::before {
+    width: 24px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.discord-logo::after {
+    width: 14px;
+    height: 14px;
+    border: 4px solid #5865f2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+/* Discord wings */
+.discord-logo div {
+    position: absolute;
+    width: 16px;
+    height: 24px;
+    background: white;
+    border-radius: 8px;
+}
+
+.discord-logo div:first-child {
+    left: -14px;
+    transform: rotate(45deg);
+}
+
+.discord-logo div:last-child {
+    right: -14px;
+    transform: rotate(-45deg);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Josefin+Sans:600');
+
+:root {
+    --main-color: #643A7A;
+    --secondary-color: #741CAF;
+    --sans: "josefin sans", sans-serif;
+}
+
+body {
+    background: #201C29;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 1.5rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-family: var(--sans);
+}
+
+nav a.active {
+    color: var(--secondary-color);
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+    width: 400px;
+    height: 400px;
+    background: var(--main-color);
+    border-radius: 5px;
+    font-family: "dancing script", cursive;
+    overflow: hidden;
+    color: rgb(121, 125, 127);
+    letter-spacing: .5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.inner {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 1s;
+    visibility: hidden;
+}
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, .5);
+    font-size: 1.3rem;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid var(--secondary-color);
+    position: absolute;
+    top: -15px;
+    right: 20px;
+}
+
+.number {
+    font-family: var(--sans);
+    position: absolute;
+    margin: 0;
+    top: 15px;
+    right: 15px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.quote {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+.credit {
+    position: absolute;
+    top: 60%;
+    right: 5%;
+    font-family: var(--sans);
+    font-size: .8rem;
+    font-weight: 500;
+}
+
+.credit::before {
+    content: "⸛ ";
+    vertical-align: middle;
+    font-size: 1.4rem;
+}
+
+.fas {
+    font-size: 3.5rem;
+    position: absolute;
+    top: 12%;
+    left: 7%;
+    color: rgba(100, 58, 122, .2);
+}
+
+.button p {
+    background: #802BBC;
+    text-align: center;
+    color: #fff;
+    padding: 1rem 0;
+    width: 100%;
+    font-family: var(--sans);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    transition: .2s ease-out;
+}
+
+.button p:hover {
+    background: var(--secondary-color);
+    cursor: pointer;
+}
+
+/* Radio button states */
+#card-1:checked ~ .container .inner-1,
+#card-2:checked ~ .container .inner-2,
+#card-3:checked ~ .container .inner-3,
+#card-4:checked ~ .container .inner-4,
+#card-5:checked ~ .container .inner-5,
+#card-6:checked ~ .container .inner-6,
+#card-7:checked ~ .container .inner-7,
+#card-8:checked ~ .container .inner-8,
+#card-9:checked ~ .container .inner-9,
+#card-10:checked ~ .container .inner-10,
+#card-11:checked ~ .container .inner-11,
+#card-12:checked ~ .container .inner-12,
+#card-13:checked ~ .container .inner-13,
+#card-14:checked ~ .container .inner-14,
+#card-15:checked ~ .container .inner-15,
+#card-16:checked ~ .container .inner-16,
+#card-17:checked ~ .container .inner-17,
+#card-18:checked ~ .container .inner-18,
+#card-19:checked ~ .container .inner-19,
+#card-20:checked ~ .container .inner-20,
+#card-21:checked ~ .container .inner-21,
+#card-22:checked ~ .container .inner-22,
+#card-23:checked ~ .container .inner-23,
+#card-24:checked ~ .container .inner-24,
+#card-25:checked ~ .container .inner-25,
+#card-26:checked ~ .container .inner-26,
+#card-27:checked ~ .container .inner-27,
+#card-28:checked ~ .container .inner-28,
+#card-29:checked ~ .container .inner-29,
+#card-30:checked ~ .container .inner-30,
+#card-31:checked ~ .container .inner-31,
+#card-32:checked ~ .container .inner-32,
+#card-33:checked ~ .container .inner-33,
+#card-34:checked ~ .container .inner-34,
+#card-35:checked ~ .container .inner-35,
+#card-36:checked ~ .container .inner-36,
+#card-37:checked ~ .container .inner-37,
+#card-38:checked ~ .container .inner-38,
+#card-39:checked ~ .container .inner-39,
+#card-40:checked ~ .container .inner-40,
+#card-41:checked ~ .container .inner-41,
+#card-42:checked ~ .container .inner-42,
+#card-43:checked ~ .container .inner-43,
+#card-44:checked ~ .container .inner-44,
+#card-45:checked ~ .container .inner-45,
+#card-46:checked ~ .container .inner-46,
+#card-47:checked ~ .container .inner-47,
+#card-48:checked ~ .container .inner-48,
+#card-49:checked ~ .container .inner-49,
+#card-50:checked ~ .container .inner-50,
+#card-51:checked ~ .container .inner-51,
+#card-52:checked ~ .container .inner-52,
+#card-53:checked ~ .container .inner-53,
+#card-54:checked ~ .container .inner-54,
+#card-55:checked ~ .container .inner-55,
+#card-56:checked ~ .container .inner-56,
+#card-57:checked ~ .container .inner-57,
+#card-58:checked ~ .container .inner-58,
+#card-59:checked ~ .container .inner-59,
+#card-60:checked ~ .container .inner-60,
+#card-61:checked ~ .container .inner-61,
+#card-62:checked ~ .container .inner-62,
+#card-63:checked ~ .container .inner-63,
+#card-64:checked ~ .container .inner-64,
+#card-65:checked ~ .container .inner-65,
+#card-66:checked ~ .container .inner-66,
+#card-67:checked ~ .container .inner-67,
+#card-68:checked ~ .container .inner-68,
+#card-69:checked ~ .container .inner-69,
+#card-70:checked ~ .container .inner-70,
+#card-71:checked ~ .container .inner-71,
+#card-72:checked ~ .container .inner-72,
+#card-73:checked ~ .container .inner-73,
+#card-74:checked ~ .container .inner-74,
+#card-75:checked ~ .container .inner-75,
+#card-76:checked ~ .container .inner-76,
+#card-77:checked ~ .container .inner-77,
+#card-78:checked ~ .container .inner-78,
+#card-79:checked ~ .container .inner-79,
+#card-80:checked ~ .container .inner-80,
+#card-81:checked ~ .container .inner-81,
+#card-82:checked ~ .container .inner-82,
+#card-83:checked ~ .container .inner-83,
+#card-84:checked ~ .container .inner-84,
+#card-85:checked ~ .container .inner-85,
+#card-86:checked ~ .container .inner-86,
+#card-87:checked ~ .container .inner-87,
+#card-88:checked ~ .container .inner-88,
+#card-89:checked ~ .container .inner-89,
+#card-90:checked ~ .container .inner-90,
+#card-91:checked ~ .container .inner-91,
+#card-92:checked ~ .container .inner-92,
+#card-93:checked ~ .container .inner-93,
+#card-94:checked ~ .container .inner-94,
+#card-95:checked ~ .container .inner-95,
+#card-96:checked ~ .container .inner-96,
+#card-97:checked ~ .container .inner-97,
+#card-98:checked ~ .container .inner-98,
+#card-99:checked ~ .container .inner-99,
+#card-100:checked ~ .container .inner-100 {
+    opacity: 1;
+    visibility: visible;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Josefin+Sans:600');
+
+:root {
+    --main-color: #643A7A;
+    --secondary-color: #741CAF;
+    --sans: "josefin sans", sans-serif;
+}
+
+body {
+    background: #201C29;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.logo {
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 1.5rem;
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-family: var(--sans);
+}
+
+.nav-menu a.active {
+    color: var(--secondary-color);
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+    width: 400px;
+    height: 400px;
+    background: var(--main-color);
+    border-radius: 5px;
+    font-family: "dancing script", cursive;
+    overflow: hidden;
+    color: rgb(121, 125, 127);
+    letter-spacing: .5px;
+}
+
+.inner {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 1s;
+    visibility: hidden;
+}
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, .5);
+    font-size: 1.3rem;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid var(--secondary-color);
+    position: absolute;
+    top: -15px;
+    right: 20px;
+}
+
+.number {
+    font-family: var(--sans);
+    position: absolute;
+    margin: 0;
+    top: 15px;
+    right: 15px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.quote {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+.credit {
+    position: absolute;
+    top: 60%;
+    right: 5%;
+    font-family: var(--sans);
+    font-size: .8rem;
+    font-weight: 500;
+}
+
+.credit::before {
+    content: "⸛ ";
+    vertical-align: middle;
+    font-size: 1.4rem;
+}
+
+.fas {
+    font-size: 3.5rem;
+    position: absolute;
+    top: 12%;
+    left: 7%;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.button p {
+    background: #802BBC;
+    text-align: center;
+    color: #fff;
+    padding: 1rem 0;
+    width: 100%;
+    font-family: var(--sans);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    transition: .2s ease-out;
+}
+
+.button p:hover {
+    background: var(--secondary-color);
+    cursor: pointer;
+}
+
+/* Radio button states (unchanged, abbreviated for brevity) */
+#card-1:checked ~ .container .inner-1,
+#card-2:checked ~ .container .inner-2,
+/* ... continue up to #card-100 ... */
+#card-100:checked ~ .container .inner-100 {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 1rem 0;
+    }
+
+    #menu-toggle:checked ~ .nav-menu {
+        display: flex;
+    }
+
+    .nav-menu a {
+        margin: 0.5rem 1rem;
+        text-align: center;
+    }
+
+    .container {
+        width: 90%;
+        margin-left: -45%;
+        height: auto;
+        min-height: 400px;
+    }
+
+    .box {
+        width: 85%;
+        height: auto;
+        min-height: 60%;
+    }
+}
